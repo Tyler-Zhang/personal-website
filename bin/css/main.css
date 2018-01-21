@@ -11,7 +11,8 @@ h1, h2, h3 {
   font-family: Multicolore !important; }
 
 body {
-  font-family: SourceSansPro !important; }
+  font-family: SourceSansPro !important;
+  height: 100%; }
 
 .top-padding-lg {
   padding-top: 200px; }
