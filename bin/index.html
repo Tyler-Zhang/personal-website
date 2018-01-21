@@ -26,60 +26,63 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
 </head>
 
-<body class="container">
-  <div class="col-md-12">
-    <div class="row col-md-8">
-      <h2 class="top-padding-lg">Hello There!</h2>
-      <p class="top-padding-sm">
-        I'm Tyler Zhang. Former full stack developer at LCBO|next, Web lead at Team Waterloop, and Computer Science student at the
-        University of Waterloo: class of 2021.
-        <br/>
-        <br/> I love building intuitive webapps. Checkout my work below!
-      </p>
-    </div>
-    <br/>
+<body>
+  <div class="container">
+    <div class="col-md-12">
+      <div class="row col-md-8">
+        <h2 class="top-padding-lg">Hello There!</h2>
+        <p class="top-padding-sm">
+          I'm Tyler Zhang. Former full stack developer at LCBO|next, Web lead at Team Waterloop, and Computer Science student at the
+          University of Waterloo: class of 2021.
+          <br/>
+          <br/> I love building intuitive webapps. Checkout my work below!
+        </p>
+      </div>
+      <br/>
 
-    <!-- Icon Section -->
-    <div class="icon-row">
-      <a target="_blank" href="https://github.com/tyler-zhang">
-        <i class="fab fa-github"></i>
-        <p>Github</p>
-      </a>
-      <a target="_blank" href="https://www.linkedin.com/in/zhangtyler/">
-        <i class="fab fa-linkedin"></i>
-        <p>LinkedIn</p>
-      </a>
-      <a target="_blank" href="https://drive.google.com/file/d/0B2_zix-T-cLPS1cxcWU4c0YxNDg/view?usp=sharing">
-        <i class="far fa-file-alt"></i>
-        <p>Resume</p>
-      </a>
-      <a target="_blank" href="mailto:me@tylerzhang.com">
-        <i class="far fa-envelope"></i>
-        <p>me@tylerzhang.com</p>
-      </a>
-    </div>
-    <br/>
+      <!-- Icon Section -->
+      <div class="icon-row">
+        <a target="_blank" href="https://github.com/tyler-zhang">
+          <i class="fab fa-github"></i>
+          <p>Github</p>
+        </a>
+        <a target="_blank" href="https://www.linkedin.com/in/zhangtyler/">
+          <i class="fab fa-linkedin"></i>
+          <p>LinkedIn</p>
+        </a>
+        <a target="_blank" href="https://drive.google.com/file/d/0B2_zix-T-cLPS1cxcWU4c0YxNDg/view?usp=sharing">
+          <i class="far fa-file-alt"></i>
+          <p>Resume</p>
+        </a>
+        <a target="_blank" href="mailto:me@tylerzhang.com">
+          <i class="far fa-envelope"></i>
+          <p>me@tylerzhang.com</p>
+        </a>
+      </div>
+      <br/>
 
-    <!-- Projects Section -->
-    <h3 class="row col top-padding-lg">Projects</h3>
-    <div class="row project-row">
-      <div class="col-md-6 project-card-container">
-        <div class="project-card popup">
-          <div class="img-container">
-            <img class="img-fluid"/>
-          </div>
-          <div class="info">
-            <div>
-              <h4 class="title"></h4>
-              <p class="description"></p>
+      <!-- Projects Section -->
+      <h3 class="row col top-padding-lg">Projects</h3>
+      <div class="row project-row">
+        <div class="col-md-6 project-card-container">
+          <div class="project-card popup">
+            <div class="img-container">
+              <img class="img-fluid" />
             </div>
-            <div class="icon-row">
+            <div class="info">
+              <div>
+                <h4 class="title"></h4>
+                <p class="description"></p>
+              </div>
+              <div class="icon-row">
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 
   <footer class="top-padding-lg"></footer>
   <script src="projects.js"></script>
@@ -88,38 +91,43 @@
 
     projects.forEach(project => {
       const clone = template.clone()
-      clone.attr({ href: project.defaultLink, target: '_blank'})
+      clone.attr({
+        href: project.defaultLink,
+        target: '_blank'
+      })
       clone.find('.title').text(project.title)
       clone.find('.description').text(project.description)
       clone.find('img.img-fluid').attr('src', project.image)
 
       const cloneIconRow = clone.find(".icon-row")
-      
+
       if (project.more)
         cloneIconRow.append(createIconElement("fa fa-file", "More", project.more))
 
-      if (project.link) 
+      if (project.link)
         cloneIconRow.append(createIconElement("fa fa-link", "Link", project.link))
 
-      if (project.github) 
+      if (project.github)
         cloneIconRow.append(createIconElement("fab fa-github", "Repo", project.github))
-      
-      
+
+
       template.before(clone)
     })
 
     template.remove()
 
-    function createIconElement (icon, label, link) {
+    function createIconElement(icon, label, link) {
       const a = $(document.createElement('a'))
-      a.attr({ href: link, target: '_blank'})
-      a.append('<i class="'+icon+'"></i>')
+      a.attr({
+        href: link,
+        target: '_blank'
+      })
+      a.append('<i class="' + icon + '"></i>')
       a.append('<p>' + label + '</p>')
-
+      a.on()
       return a
     }
   </script>
-
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112760781-1"></script>
   <script>
