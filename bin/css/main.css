@@ -1,4 +1,27 @@
-body {
-  background-color: black; }
+@font-face {
+  font-family: "Multicolore";
+  src: url("../fonts/Multicolore.eot?") format("eot"), url("../fonts/Multicolore.woff2") format("woff2"), url("../fonts/Multicolore.woff") format("woff"), url("../fonts/Multicolore.ttf") format("truetype"), url("../fonts/Multicolore.svg#Multicolore") format("svg"); }
+@font-face {
+  font-family: "SourceSansPro";
+  src: url("../fonts/SourceSansPro-Regular.eot?") format("eot"), url("../fonts/SourceSansPro-Regular.woff2") format("woff2"), url("../fonts/SourceSansPro-Regular.woff") format("woff"), url("../fonts/SourceSansPro-Regular.ttf") format("truetype"), url("../fonts/SourceSansPro-Regular.svg#SourceSansPro") format("svg"); }
+/*
+ * Text font settings
+*/
+h1, h2, h3 {
+  font-family: Multicolore !important; }
+
+p, a {
+  font-family: SourceSansPro !important; }
+
+.top-padding {
+  height: 200px; }
+
+.icon-row a, .icon-row div {
+  display: flex;
+  align-items: center;
+  padding-right: 20px; }
+  .icon-row a > p, .icon-row div > p {
+    margin: 0px;
+    padding-left: 3px; }
 
 /*# sourceMappingURL=main.css.map */

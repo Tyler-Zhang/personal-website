@@ -1,3 +1,32 @@
-body {
-  background-color: black
+@import 'mixins';
+
+@include font-face(Multicolore, '../fonts/Multicolore');
+@include font-face(SourceSansPro, '../fonts/SourceSansPro-Regular');
+
+/*
+ * Text font settings
+*/
+h1, h2, h3 {
+  font-family: Multicolore !important;
+}
+
+p, a {
+  font-family: SourceSansPro !important;
+}
+
+.top-padding {
+  height: 200px;
+}
+
+.icon-row {
+  a, div {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    
+    > p {
+      margin: 0px;
+      padding-left: 3px;
+    }
+  }
 }
