@@ -1,0 +1,28 @@
+.project-row {
+  margin-left: -55px !important;
+  margin-right: -55px !important; }
+
+.project-card-container {
+  padding: 40px !important; }
+  .project-card-container > .project-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column; }
+    .project-card-container > .project-card > .img-container {
+      height: 300px;
+      overflow: hidden; }
+      .project-card-container > .project-card > .img-container > img {
+        object-fit: cover;
+        min-height: 100%;
+        width: 100%; }
+    .project-card-container > .project-card > .info {
+      padding: 20px;
+      line-height: 150%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1; }
+    .project-card-container > .project-card .title {
+      font-weight: bold; }
+
+/*# sourceMappingURL=home.css.map */
