@@ -8,13 +8,19 @@
     height: 100%;
     display: flex;
     flex-direction: column; }
-    .project-card-container > .project-card > .img-container {
+    .project-card-container > .project-card > .thumbnail-container {
       height: 333px;
-      overflow: hidden; }
-      .project-card-container > .project-card > .img-container > img {
+      overflow: hidden;
+      position: relative; }
+      .project-card-container > .project-card > .thumbnail-container > img, .project-card-container > .project-card > .thumbnail-container video {
         object-fit: cover;
         min-height: 100%;
-        width: 100%; }
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px; }
+      .project-card-container > .project-card > .thumbnail-container > video {
+        visibility: hidden; }
     .project-card-container > .project-card > .info {
       padding: 20px;
       line-height: 150%;

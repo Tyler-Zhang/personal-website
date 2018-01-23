@@ -11,13 +11,22 @@
     display: flex;
     flex-direction: column;
 
-    > .img-container {
+    > .thumbnail-container {
       height: 333px;
       overflow: hidden;
-      > img {
+      position: relative;
+
+      > img, video {
         object-fit: cover;
         min-height: 100%;
         width:100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+
+      > video {
+        visibility: hidden;
       }
     }
 
