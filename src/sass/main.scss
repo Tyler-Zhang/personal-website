@@ -1,7 +1,8 @@
 @import 'mixins';
 
 @include font-face(Multicolore, '../fonts/Multicolore');
-@include font-face(SourceSansPro, '../fonts/SourceSansPro-Regular');
+// @include font-face(SourceSansPro, '../fonts/SourceSansPro-Regular');
+@include font-face(Lato, '../fonts/Lato-Light');
 
 /*
  * Text font settings
@@ -11,7 +12,12 @@ h1, h2, h3 {
 }
 
 body {
-  font-family: SourceSansPro !important;
+  font-family: Lato !important;
+  color: #333 !important;
+}
+
+p {
+  font-size: 1.2em;
 }
 
 .top-padding-lg {
@@ -28,6 +34,8 @@ body {
 
 .icon-row {
   display: flex;
+  flex-wrap: wrap;
+
   a, div {
     display: flex;
     align-items: center;
