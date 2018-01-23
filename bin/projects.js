@@ -1,9 +1,11 @@
 const projects = [{
   title: "Waterloop Goose2 Dashboard",
   description: "Primary control panel for receiving hyperloop pod data and sending manual override commands.",
+  image: "images/dashboard-thumbnail.png",
   github: "https://github.com/teamwaterloop/goose2-dashboard"
 },{
   title: "Waterloop Team Manager",
+  image: "images/team-manager-thumbnail.png",
   description: "Web app to help manage team members and automatically grant permissions to shared resources like Slack and Google Drive",
   github: "https://github.com/teamwaterloop/team-manager-front"
 },{
@@ -15,6 +17,7 @@ const projects = [{
 }, {
   title: "Waterloo Quest +",
   description: "Injects scraped professor ratings into school scheduling website to help students choose the best classes",
+  image: "images/waterloo-quest-plus-thumbnail.png",
   link: "https://chrome.google.com/webstore/detail/waterloo-quest%2B/flibldkpfnhllecdhoaogigdnajngaoc?hl=en",
   github: "https://github.com/Tyler-Zhang/Waterloo-Quest-Plus"
 }]
