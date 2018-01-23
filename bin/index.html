@@ -68,8 +68,8 @@
           <div class="project-card popup">
             <a class="thumbnail-container" target="_blank">
               <img class="img-fluid" />
-              <video autoplay loop>
-                <source class="thumbnail-video" type="video/mp4">
+              <video class="thumbnail-video" autoplay loop>
+                <source type="video/mp4">
               </video>
             </a>
             <div class="info">
@@ -103,12 +103,18 @@
       }
 
       if (project.thumbnailVideo) {
-        clone.find('.thumbnail-video').attr('src', project.thumbnailVideo)
+        const vid = clone.find('.thumbnail-video')
+        vid.find('source').attr('src', project.thumbnailVideo)
+        vid.get(0).pause()
+
         clone.children().mouseover(function(){
-          $(this).find('video').css('visibility', 'visible')
+          vid.css('visibility', 'visible')
+          vid.get(0).play()
+
         })
         clone.children().mouseleave(function(){
-          $(this).find('video').css('visibility', 'hidden')
+          vid.css('visibility', 'hidden')
+          vid.get(0).pause()          
         })
       }
 
