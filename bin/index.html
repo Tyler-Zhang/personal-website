@@ -66,7 +66,7 @@
       <div class="row project-row">
         <div class="col-md-6 project-card-container">
           <div class="project-card popup">
-            <a class="thumbnail-container" target="_blank">
+            <a class="thumbnail-container">
               <img class="img-fluid" />
               <video class="thumbnail-video" autoplay loop>
                 <source type="video/mp4">
@@ -114,14 +114,16 @@
         })
         clone.children().mouseleave(function(){
           vid.css('visibility', 'hidden')
-          vid.get(0).pause()          
+          const vidElement = vid.get(0)
+          vidElement.currentTime = 0
+          vidElement.pause()
         })
       }
 
       const cloneIconRow = clone.find(".icon-row")
 
-      if (project.more)
-        cloneIconRow.append(createIconElement("fa fa-file", "More", project.more))
+      if (project.info)
+        cloneIconRow.append(createIconElement("fas fa-info-circle", "Behind The Scenes", project.info))
 
       if (project.link)
         cloneIconRow.append(createIconElement("fa fa-link", "Link", project.link))
@@ -138,8 +140,7 @@
     function createIconElement(icon, label, link) {
       const a = $(document.createElement('a'))
       a.attr({
-        href: link,
-        target: '_blank'
+        href: link
       })
       a.append('<i class="' + icon + '"></i>')
       a.append('<p>' + label + '</p>')

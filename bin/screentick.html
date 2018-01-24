@@ -1,0 +1,216 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Tyler Zhang - ScreenTick</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-jquery-3.3.1.min.js"><\/script>')
+  </script>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/project.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+</head>
+
+<body>
+  <div class="container top-padding-md">
+    <div class="col-md-8 offset-md-2 text-container">
+
+      <h1 class="row col">Screen Tick</h1>
+      <br/>
+      <p>
+        Screen Tick is a project that was originally conceived under the name
+        <a href="https://github.com/Tyler-Zhang/ScreenOff">ScreenOff</a> at a highschool hackathon called MasseyHacks. We thought that children being distracted on their phones
+        is a big problem. We wanted to create a tool that could track when and how long they were on their phones for. That
+        way, their parents could know that their children are not distracted when doing their homework or even driving.
+      </p>
+
+      <p style="margin-bottom:0px !important">
+        <b>We realized that this was a big project to take on because it needed:</b>
+      </p>
+      <ol>
+        <li>A backend server to receive, store, and format data</li>
+        <li>An Android application to track data and send to server</li>
+        <li>A web app to display data</li>
+      </ol>
+      <br/>
+
+      <p>
+        Unfortunately we didn’t have a working demo by the end.
+      </p>
+
+
+      <p>
+        A few months later, I decided to challenge myself to see if I could finish the project single handedly. I rewrote all of
+        the code from scratch and gained an enormous amount of knowledge.
+      </p>
+
+      <h2 class="top-padding-sm">Backend Server</h2>
+      <br/>
+
+      <p>
+        The backend is written in Node.js. I chose the language because it was trendy, and I wanted to improve my novice level understanding
+        of Javascript. I used
+        <b>Express</b> for the routing and
+        <b>MongoDB</b> as the database solution. Instead of using Mongoose as an ORM, I used the Node.js MongoDB driver so I
+        could learn the low level APIs.
+      </p>
+
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="images/screentick/screentick-database.png" alt="Screentick bar charts">
+        </div>
+      </div>
+      <br/>
+
+      <p>
+        By using these relations, each parent could have an account which would contain multiple users (their children) which will
+        have multiple devices (phones, laptops, etc.). Although a lot of this data is relational, it made sense to use a
+        NoSQL storage solution since there were a lot of one-to-many relations that would have to be joined..
+      </p>
+
+      <p>
+        The primary method of adding devices to accounts is through the scanning of a QR code but to be compatible with devices with
+        no camera, I also implemented joining accounts through a short text code (like in Discord). These codes are stored
+        in the joinCodes table and are deleted when they expire.
+      </p>
+
+      <h2 class="top-padding-sm">Web App</h2>
+      <br/>
+
+      <p>
+        The web app was initially created without the use of any frameworks. I soon got addicted to the drug that was React and decided
+        to rewrite the front end codebase in React. Thankfully, it did not take too long since most HTMLis valid React JSX.
+      </p>
+
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="images/screentick/screentick-barchart.png" alt="Screentick bar charts">
+        </div>
+      </div>
+      <br/>
+
+      <p>
+        This bar chart shows the amount of time a device’s screen has been on per hour. You can also select the day and view a range
+        of days. Checkout the
+        <a href="https://screentick.tylerzhang.com/">demo</a>.
+      </p>
+
+
+      <h2 class="top-padding-sm">Authentication</h2>
+      <br/>
+
+      <p>
+        Authentication is done using JSON web tokens. I only store the id of the account in the JWT as a means of fast authentication.
+        The JWT is saved as a cookie and is sent with every request.
+      </p>
+
+
+      <h2 class="top-padding-sm">Managing Devices</h2>
+      <br/>
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="images/screentick/screentick-devices.png" alt="Screentick bar charts">
+        </div>
+      </div>
+      <br/>
+
+      <p>
+        The user section allows the adding and deleting of devices
+      </p>
+
+      <div class="row">
+        <div class="col-md-4">
+          <img class="img-fluid" src="images/screentick/screentick-app1.png" alt="">
+        </div>
+        <div class="col-md-4">
+          <img class="img-fluid" src="images/screentick/screentick-app2.png" alt="">
+        </div>
+        <div class="col-md-4">
+          <img class="img-fluid" src="images/screentick/screentick-app3.png" alt="">
+        </div>
+      </div>
+
+      <br/>
+
+      <p>
+        Devices can be added to the account by scanning the QRCode and choosing the owner of the device
+      </p>
+
+      <div class="row">
+        <div class="col-md-4 offset-md-4">
+          <img class="img-fluid" src="images/screentick/screentick-app5.png" alt="">
+        </div>
+      </div>
+      <br/>
+
+      <p>
+        The app runs a service in background that is automatically started when the device is turned on. The service listens for
+        system broadcasts about screen state to calculate how long the phone has been on for. Data is initially stored on
+        the device in a SQLite database and synced to the server every 15 minutes.
+      </p>
+
+      <h2 class="top-padding-sm">Lessons Learned</h2>
+      <br/>
+
+      <p style="margin-bottom:20px !important;">
+        This project got me started on the right track as a Full-Stack Developer. Because it required a lot of different components,
+        completing it taught me many skills like:
+      </p>
+
+      <ul>
+        <li>How to develop front end applications using React and Redux</li>
+        <li>Creating a server using Node.js and Express</li>
+        <li>Using MongoDB including its awesome aggregation pipeline</li>
+        <li>Android Development with Android Studio and React Native</li>
+        <li>Authentication (using Bcrypt, Cookies, JWTs)</li>
+      </ul>
+
+      <h2 class="top-padding-sm">Things that can be improved</h2>
+      <br/>
+
+      <ul>
+        <li>Rewrite the project in Typescript</li>
+        <li>API design, make the API more restful and use Express routers more liberally</li>
+        <li>Rewrite using an ORM like Mongoose or Typeorm</li>
+        <li>Rewrite frontend using a better UI framework like AntDesign or Material</li>
+        <li>Redesign Android App to use React-Native exclusively (it’s a hybrid right now)</li>
+      </ul>
+
+      <a href="index.html">
+        <h3 class="top-padding-md">Go Back To Home Page</h3>
+      </a>
+
+    </div>
+  </div>
+
+
+
+  <footer class="top-padding-lg"></footer>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112760781-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-112760781-1');
+  </script>
+</body>
+
+</html>

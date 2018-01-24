@@ -1,0 +1,169 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Tyler Zhang - ScreenTick</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-jquery-3.3.1.min.js"><\/script>')
+  </script>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/project.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+</head>
+
+<body>
+  <div class="container top-padding-md">
+    <div class="col-md-8 offset-md-2 text-container">
+
+      <h1 class="row col">Waterloo Quest+</h1>
+      <br/>
+      <p>
+        Waterloo Quest + Is a Chrome extension that helps University of Waterloo students find the best professors by injecting professor
+        scores straight into Waterloo Quest. Waterloo Quest is the web portal we use to add, drop, and swap courses.
+      </p>
+
+      <p>
+        Requests enter the server as a list of names. The server looks up the names in the database. If nothing is there, it will
+        try to scrape RateMyProfessors.
+      </p>
+
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="images/waterloo-quest-plus/database.png" alt="Waterloo quest plus database diagram">
+        </div>
+      </div>
+      <br/>
+
+      <p>
+        The data is stored in a MongoDB server with two collections.
+      </p>
+      <p>
+        The ratings collection stores the relevant information and the void collection stores names that could not be resolved. Sometimes
+        names can’t be found because the professor is too new and doesn’t have a page yet, or because the professor goes
+        by a nickname, or because Waterloo Quest’s formatting is different from what is expected. These failed queries are
+        stored so that the server does waste resources retrying repeatedly. The void collection is purged regularly so that
+        names could be eventually found
+      </p>
+
+      <h2 class="top-padding-sm">Chrome Extension</h2>
+      <br/>
+
+      <p>
+        The Chrome extension uses JQuery to search for professor names, makes a request to the server to retrieve the ratings, and
+        then uses JQuery to display the ratings.
+      </p>
+
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="images/waterloo-quest-plus/chrome-extension1.png" alt="waterloo quest without ratings">
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="images/waterloo-quest-plus/chrome-extension2.png" alt="waterloo quest with ratings">
+        </div>
+      </div>
+      <br/>
+
+      <p>
+        When a rating is not found for a professor, their name turns into a link to a suggestion page.
+      </p>
+
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="images/waterloo-quest-plus/chrome-extension3.png" alt="waterloo quest with ratings">
+        </div>
+      </div>
+
+      <p>
+        This page allows the users to suggest a RateMyProfessor URL to scrape form. Right now the URLs must be reviewed manually.
+      </p>
+
+      <h2 class="top-padding-sm">Getting Data</h2>
+      <br/>
+
+      <p>
+        The data is fetched using a POST request so that more names can be fit into a single request. I initially sent the request
+        body as JSON but noticed something weird: every time the chrome extension tried to resolve professor names, it made
+        two requests.
+      </p>
+
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="images/waterloo-quest-plus/networking1.png" alt="Network tab with 2 request calls">
+        </div>
+      </div>
+      <br/>
+
+      <p>
+        After some
+        <a href="https://stackoverflow.com/questions/29954037/why-is-an-options-request-sent-and-can-i-disable-it">research</a>, I learned that requests using JSON to a different host triggers a preflight call to make sure that
+        the server can accept it. Although the delay was small, I wanted the data to reach the user as fast as possible so
+        I switched to x-www-url-form-encoding.
+      </p>
+
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="images/waterloo-quest-plus/networking2.png" alt="Network tab with 2 request calls">
+        </div>
+      </div>
+      <br/>
+
+      <p> Nore more preflight! </p>
+
+      <h2 class="top-padding-sm">Lessons Learned</h2>
+      <ul>
+        <li>How to use JQuery both on the Chrome extension on on Node (cheerio)</li>
+        <li>Basic Typescript (the backend is written in Typescript)</li>
+        <li>How to build Chrome extensions!</li>
+        <li>How to get around preflight</li>
+      </ul>
+
+
+      <h2 class="top-padding-sm">Things that can be improved</h2>
+      <br/>
+
+      <ul>
+        <li>Validate suggested URLs automatically</li>
+        <li>Scrape all professors daily instead of waiting for a request to come in</li>
+      </ul>
+
+      <a href="index.html">
+        <h3 class="top-padding-md">Go Back To Home Page</h3>
+      </a>
+
+    </div>
+  </div>
+
+
+
+  <footer class="top-padding-lg"></footer>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112760781-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-112760781-1');
+  </script>
+</body>
+
+</html>

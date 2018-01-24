@@ -14,7 +14,7 @@ body {
   font-family: Lato !important;
   color: #333 !important; }
 
-p {
+p, li {
   font-size: 1.2em; }
 
 .top-padding-lg {
