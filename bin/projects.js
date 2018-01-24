@@ -12,6 +12,7 @@ const projects = [{
   thumbnail: "images/waterloo-quest-plus-thumbnail.png",
   thumbnailVideo: "images/waterloo-quest-plus-video.mp4",
   link: "https://chrome.google.com/webstore/detail/waterloo-quest%2B/flibldkpfnhllecdhoaogigdnajngaoc?hl=en",
+  defaultLink: "wqp.html",
   github: "https://github.com/Tyler-Zhang/Waterloo-Quest-Plus",
   info: "wqp.html"
 }, {
@@ -25,5 +26,6 @@ const projects = [{
   title: "Waterloop Team Manager",
   thumbnail: "images/team-manager-thumbnail.png",
   description: "Web app that helps team leads at Waterloop manage their members. Logging in to the web portal allows new recruits to be easily assigned to roles and given permissions to team resources based on those roles. (WIP)",
-  github: "https://github.com/teamwaterloop/team-manager-front"
+  github: "https://github.com/teamwaterloop/team-manager-front",
+  defaultLink: "https://github.com/teamwaterloop/team-manager-front"
 }]
