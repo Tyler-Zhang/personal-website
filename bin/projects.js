@@ -1,13 +1,13 @@
 const projects = [{
   title: "Screen Tick",
-  description: "ScreenTick is a device usage tracking webapp that helps parents monitor their childrens' phone usage.",
+  description: "Screen Tick is a device usage tracking webapp that helps parents monitor their childrens' phone usage.",
   thumbnail: "images/screentick-thumbnail.png",
   thumbnailVideo: "images/screentick-video.mp4",
   link: "https://screentick.tylerzhang.com",
   defaultLink: "screentick.html",
   info: "screentick.html"
 }, {
-  title: "Waterloo Quest +",
+  title: "Waterloo Quest+",
   description: "Injects scraped professor ratings into University of Waterloo class scheduling website to help students choose the best professors.",
   thumbnail: "images/waterloo-quest-plus-thumbnail.png",
   thumbnailVideo: "images/waterloo-quest-plus-video.mp4",
