@@ -1,4 +1,11 @@
 const projects = [{
+  title: "Team Manager",
+  thumbnail: "images/team-manager-thumbnail.png",
+  description: "Easy to use fullstack application for sharing resources with team members in your organization.",
+  github: "https://github.com/tyler-zhang/team-manager",
+  defaultLink: "https://github.com/tyler-zhang/team-manager",
+  link: "https://teammanager.tylerzhang.com"
+}, {
   title: "Screen Tick",
   description: "Screen Tick is a device usage tracking webapp that helps parents monitor their childrens' phone usage.",
   thumbnail: "images/screentick-thumbnail.png",
@@ -22,10 +29,4 @@ const projects = [{
   thumbnailVideo: "images/dashboard-video.mp4",
   github: "https://github.com/teamwaterloop/goose2-dashboard",
   defaultLink: "https://github.com/teamwaterloop/goose2-dashboard"
-},{
-  title: "Waterloop Team Manager",
-  thumbnail: "images/team-manager-thumbnail.png",
-  description: "Web app that helps team leads at Waterloop manage their members. Logging in to the web portal allows new recruits to be easily assigned to roles and given permissions to team resources based on those roles. (WIP)",
-  github: "https://github.com/teamwaterloop/team-manager-front",
-  defaultLink: "https://github.com/teamwaterloop/team-manager-front"
 }]
